@@ -6,6 +6,7 @@ SONNENSCHUTZ_LIST = [
 ]
 #comment
 #test
+#gittest
 DACHFLAECHEN = [
     "bitte auswählen",
     "ohne Sonnenschutz",
