@@ -59,10 +59,17 @@ class Configuration(QMainWindow):
         self.sonnenschutz_west.currentTextChanged.connect(self.west_changed)
 
         self.drop_dachflaechen.addItems(DACHFLAECHEN)
+        self.drop_dachflaechen.currentTextChanged.connect(self.dachflaechen)
+
         self.drop_decke.addItems(DACH)
+        self.drop_decke.currentTextChanged.connect(self.decke)
+
         self.drop_personen.addItems(PERSONEN)
+        self.drop_personen.currentTextChanged.connect(self.personen_anzahl)
+
         self.drop_leuchtmittel.addItems(LEUCHTMITTEL)
         self.drop_beleuchtung.addItems(BELEUCHTUNG)
+        self.drop_beleuchtung.currentTextChanged.connect(self.grundflaeche)
 
         self.save_raum_btn.clicked.connect(self.save_raum)
         self.save_sonstiges_btn.clicked.connect(self.save_sonstiges)
@@ -75,8 +82,29 @@ class Configuration(QMainWindow):
         self.pc_stueck.textChanged.connect(self.arbeitsplaetze)
         self.drucker_stueck.textChanged.connect(self.drucker)
 
-    def dachflaechen(self):
-        pass
+    def dachflaechen(self, s):
+        if s == DACHFLAECHEN[0]:
+            self.label_50.setText("=...W/m²")
+            kuehllast["dachflaechen"]["kuehllast"] = 0
+            self.label_dachflaechen.setText("0")
+        else:
+            self.label_50.setText("=" + str(kuehllast["dachflaechen"][s]) + " W/m²")
+            if "," in self.flaeche_dachflaeche.text():
+                input = self.flaeche_dachflaeche.text().replace(",", ".")
+            else:
+                input = self.flaeche_dachflaeche.text()
+            kuehllast["dachflaechen"]["flaeche"] = float(input)
+            kuehllast["dachflaechen"]["kuehllast"] = round(kuehllast["dachflaechen"][s] * kuehllast["dachflaechen"]["flaeche"], 2)
+
+            summary["kuehllast"]["dachflaechen"] = kuehllast["dachflaechen"]["kuehllast"]
+            self.result_dachflaechen.setText(str(summary["kuehllast"]["dachflaechen"]).replace(".", ","))
+
+            if isinstance(kuehllast["dachflaechen"]["kuehllast"], float):
+                export = str(kuehllast["dachflaechen"]["kuehllast"]).replace(".", ",")
+            else:
+                export = str(kuehllast["dachflaechen"]["kuehllast"])
+            self.label_dachflaechen.setText(export)
+        print(summary)
 
     def tran_wand_nord(self, s):
         input_string = ""
@@ -126,8 +154,29 @@ class Configuration(QMainWindow):
         self.label_nebenraeume.setText(str(summary["kuehllast"]["nebenraeume"]).replace(".", ","))
         self.result_nebenraeume.setText(str(summary["kuehllast"]["nebenraeume"]).replace(".", ","))
 
-    def decke(self):
-        pass
+    def decke(self, s):
+        if s == DACH[0]:
+            self.label_83.setText("=...W/m²")
+            kuehllast["decke"]["kuehllast"] = 0
+            self.label_decke.setText("0")
+        else:
+            self.label_83.setText("=" + str(kuehllast["decke"][s]) + " W/m²")
+            if "," in self.flaeche_dach.text():
+                input = self.flaeche_dach.text().replace(",", ".")
+            else:
+                input = self.flaeche_dach.text()
+            kuehllast["decke"]["flaeche"] = float(input)
+            kuehllast["decke"]["kuehllast"] = round(kuehllast["decke"][s] * kuehllast["decke"]["flaeche"], 2)
+
+            summary["kuehllast"]["decke"] = kuehllast["decke"]["kuehllast"]
+            self.result_dach.setText(str(summary["kuehllast"]["decke"]).replace(".", ","))
+
+            if isinstance(kuehllast["decke"]["kuehllast"], float):
+                export = str(kuehllast["decke"]["kuehllast"]).replace(".", ",")
+            else:
+                export = str(kuehllast["decke"]["kuehllast"])
+            self.label_decke.setText(export)
+        print(summary)
 
     def fussboden(self, s):
         input_string = ""
@@ -145,9 +194,29 @@ class Configuration(QMainWindow):
         self.label_fussboden.setText(str(summary["kuehllast"]["fussboden"]).replace(".", ","))
         self.result_fusboden.setText(str(summary["kuehllast"]["fussboden"]).replace(".", ","))
 
+    def personen_anzahl(self, s):
+        if s == PERSONEN[0]:
+            self.label_92.setText("=...W/m²")
+            kuehllast["personen"]["kuehllast"] = 0
+            self.label_personen.setText("0")
+        else:
+            self.label_92.setText("=" + str(kuehllast["personen"][s]) + " W/m²")
+            if "," in self.anz_personen.text():
+                input = self.anz_personen.text().replace(",", ".")
+            else:
+                input = self.anz_personen.text()
+            kuehllast["personen"]["flaeche"] = float(input)
+            kuehllast["personen"]["kuehllast"] = round(kuehllast["personen"][s] * kuehllast["personen"]["flaeche"], 2)
 
-    def personen_anzahl(self):
-        pass
+            summary["kuehllast"]["personen"] = kuehllast["personen"]["kuehllast"]
+            self.result_personen.setText(str(summary["kuehllast"]["personen"]).replace(".", ","))
+
+            if isinstance(kuehllast["personen"]["kuehllast"], float):
+                export = str(kuehllast["personen"]["kuehllast"]).replace(".", ",")
+            else:
+                export = str(kuehllast["personen"]["kuehllast"])
+            self.label_personen.setText(export)
+        print(summary)
 
     def arbeitsplaetze(self, s):
         input_string = ""
@@ -180,6 +249,32 @@ class Configuration(QMainWindow):
         summary["kuehllast"]["drucker"] = round(val, 2)
         self.label_drucker.setText(str(summary["kuehllast"]["drucker"]).replace(".", ","))
         self.result_drucker.setText(str(summary["kuehllast"]["drucker"]).replace(".", ","))
+
+    def grundflaeche(self, s):
+        leuchte = self.drop_leuchtmittel.currentText()
+        print(leuchte)
+        if s == BELEUCHTUNG[0] or leuchte == LEUCHTMITTEL[0]:
+            self.label_102.setText("=...W/m²")
+            #kuehllast["leuchtmittel"][s]["kuehllast"] = 0
+            self.label_grundflaeche.setText("0")
+        else:
+            self.label_102.setText("=" + str(kuehllast["leuchtmittel"][s][leuchte]) + " W/m²")
+            if "," in self.flaeche_grundflaeche.text():
+                input = self.flaeche_grundflaeche.text().replace(",", ".")
+            else:
+                input = self.flaeche_grundflaeche.text()
+            kuehllast["leuchtmittel"][s]["flaeche"] = float(input)
+            kuehllast["leuchtmittel"][s]["kuehllast"] = round(kuehllast["leuchtmittel"][s][leuchte] * kuehllast["leuchtmittel"][s]["flaeche"], 2)
+
+            summary["kuehllast"]["grundflaeche"] = kuehllast["leuchtmittel"][s]["kuehllast"]
+            self.result_beleuchtete_grundflaeche.setText(str(summary["kuehllast"]["grundflaeche"]).replace(".", ","))
+
+            if isinstance(kuehllast["leuchtmittel"][s]["kuehllast"], float):
+                export = str(kuehllast["leuchtmittel"][s]["kuehllast"]).replace(".", ",")
+            else:
+                export = str(kuehllast["leuchtmittel"][s]["kuehllast"])
+            self.label_grundflaeche.setText(export)
+        print(summary)
 
     def sued_changed(self, s):
         if s == SONNENSCHUTZ_LIST[0]:

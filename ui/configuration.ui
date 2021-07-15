@@ -3511,7 +3511,7 @@ background-color: #0078C6
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_51">
+             <widget class="QLabel" name="label_dachflaechen">
               <property name="minimumSize">
                <size>
                 <width>75</width>
@@ -4114,7 +4114,7 @@ background-color: #0078C6
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_78">
+             <widget class="QLabel" name="label_decke">
               <property name="minimumSize">
                <size>
                 <width>75</width>
@@ -4432,7 +4432,7 @@ background-color: #0078C6
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_91">
+             <widget class="QLabel" name="label_personen">
               <property name="minimumSize">
                <size>
                 <width>75</width>
@@ -4895,7 +4895,7 @@ background-color: #0078C6
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_104">
+             <widget class="QLabel" name="label_grundflaeche">
               <property name="minimumSize">
                <size>
                 <width>75</width>

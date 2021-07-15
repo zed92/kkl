@@ -51,5 +51,52 @@ waermeeinfall = {
 }
 
 kuehllast = {
-
+    "dachflaechen": {
+        "ohne Sonnenschutz": 320,
+        "Sonnenschutz innen": 180,
+        "Sonnenschutz außen": 100,
+        "flaeche": 0,
+        "kuehllast": 0
+    },
+    "decke": {
+        "oberer Raum klimatisiert": 0,
+        "Decke ungedämmt": 20,
+        "Decke gedämmt": 15,
+        "Dach ungedämmt": 30,
+        "Dach gedämmt": 18,
+        "flaeche": 0,
+        "kuehllast": 0
+    },
+    "personen": {
+        "körperlich nicht tätig bis leichte Arbeiten im stehen": 120,
+        "mäßig schwere körperliche Arbeit": 190,
+        "flaeche": 0,
+        "kuehllast": 0
+    },
+    "leuchtmittel": {
+        "Räume mit wenig Beleuchtung (z.B. Lagerräume)": {
+            "LED-Beleuchtung": 2,
+            "Energiespar-Leuchtmittel": 7,
+            "Leuchtstoff-Lampen": 12,
+            "Strahler & Spots": 32,
+            "flaeche": 0,
+            "kuehllast": 0
+        },
+        "Räume mit mittlerer Beleuchtung (z.B. Büros)": {
+            "LED-Beleuchtung": 4,
+            "Energiespar-Leuchtmittel": 14,
+            "Leuchtstoff-Lampen": 24,
+            "Strahler & Spots": 64,
+            "flaeche": 0,
+            "kuehllast": 0
+        },
+        "Räume mit hoher Beleuchtung (z.B. Shops)": {
+            "LED-Beleuchtung": 8,
+            "Energiespar-Leuchtmittel": 28,
+            "Leuchtstoff-Lampen": 48,
+            "Strahler & Spots": 128,
+            "flaeche": 0,
+            "kuehllast": 0
+        },
+    }
 }
