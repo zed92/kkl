@@ -17,7 +17,16 @@ summary = {
         "dif_einstrahlung": 0
     },
     "kuehllast": {
-
+        "dachflaechen": 0,
+        "tran_nord": 0,
+        "tran_rest": 0,
+        "nebenraeume": 0,
+        "decke": 0,
+        "fussboden": 0,
+        "personen_anzahl": 0,
+        "arbeitsplaetze": 0,
+        "drucker": 0,
+        "grundflaeche": 0
     },
     "sonstigekuehllast": {
         "sonstkuehllast": 0

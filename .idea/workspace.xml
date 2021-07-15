@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d91b9e3-e2f7-4ef4-a5eb-1cc1521c738b" name="Default Changelist" comment="new test commit">
+    <list default="true" id="4d91b9e3-e2f7-4ef4-a5eb-1cc1521c738b" name="Default Changelist" comment="finished waermeeinfall tab">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dropdown.py" beforeDir="false" afterPath="$PROJECT_DIR$/dropdown.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results.py" beforeDir="false" afterPath="$PROJECT_DIR$/results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/configuration.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui/configuration.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +33,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1v2vtrgRVYLbozpnHtAS8Ys2ilK" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -116,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625993610961</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="finished waermeeinfall tab">
+      <created>1626368178573</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1626368178574</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -147,6 +154,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="test" />
     <MESSAGE value="new test commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="new test commit" />
+    <MESSAGE value="finished waermeeinfall tab" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished waermeeinfall tab" />
   </component>
 </project>

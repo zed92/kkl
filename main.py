@@ -68,6 +68,118 @@ class Configuration(QMainWindow):
         self.save_sonstiges_btn.clicked.connect(self.save_sonstiges)
         self.confirm_btn.clicked.connect(self.confirm_kuehllast)
 
+        self.flaeche_ausenwand_nord.textChanged.connect(self.tran_wand_nord)
+        self.flaeche_ausenwand_rest.textChanged.connect(self.tran_wand_rest)
+        self.flaeche_nebenraeume.textChanged.connect(self.nebenraeume)
+        self.flaechen_fusboden.textChanged.connect(self.fussboden)
+        self.pc_stueck.textChanged.connect(self.arbeitsplaetze)
+        self.drucker_stueck.textChanged.connect(self.drucker)
+
+    def dachflaechen(self):
+        pass
+
+    def tran_wand_nord(self, s):
+        input_string = ""
+        val = 0
+        if "," in s:
+            input_string = s.replace(",", ".")
+            val = float(input_string)
+        elif s == "":
+            self.label_tran_nord.setText("0")
+            self.result_ausenwand_nord.setText("0")
+        else:
+            val = float(s)
+        val *= 4
+        summary["kuehllast"]["tran_nord"] = round(val, 2)
+        self.label_tran_nord.setText(str(summary["kuehllast"]["tran_nord"]).replace(".", ","))
+        self.result_ausenwand_nord.setText(str(summary["kuehllast"]["tran_nord"]).replace(".", ","))
+
+    def tran_wand_rest(self, s):
+        input_string = ""
+        val = 0
+        if "," in s:
+            input_string = s.replace(",", ".")
+            val = float(input_string)
+        elif s == "":
+            self.label_tran_rest.setText("0")
+            self.result_ausenwand_rest.setText("0")
+        else:
+            val = float(s)
+        val *= 12
+        summary["kuehllast"]["tran_rest"] = round(val, 2)
+        self.label_tran_rest.setText(str(summary["kuehllast"]["tran_rest"]).replace(".", ","))
+        self.result_ausenwand_rest.setText(str(summary["kuehllast"]["tran_rest"]).replace(".", ","))
+
+    def nebenraeume(self, s):
+        input_string = ""
+        val = 0
+        if "," in s:
+            input_string = s.replace(",", ".")
+            val = float(input_string)
+        elif s == "":
+            self.label_nebenraeume.setText("0")
+            self.result_nebenraeume.setText("0")
+        else:
+            val = float(s)
+        val *= 8
+        summary["kuehllast"]["nebenraeume"] = round(val, 2)
+        self.label_nebenraeume.setText(str(summary["kuehllast"]["nebenraeume"]).replace(".", ","))
+        self.result_nebenraeume.setText(str(summary["kuehllast"]["nebenraeume"]).replace(".", ","))
+
+    def decke(self):
+        pass
+
+    def fussboden(self, s):
+        input_string = ""
+        val = 0
+        if "," in s:
+            input_string = s.replace(",", ".")
+            val = float(input_string)
+        elif s == "":
+            self.label_fussboden.setText("0")
+            self.result_fusboden.setText("0")
+        else:
+            val = float(s)
+        val *= 9
+        summary["kuehllast"]["fussboden"] = round(val, 2)
+        self.label_fussboden.setText(str(summary["kuehllast"]["fussboden"]).replace(".", ","))
+        self.result_fusboden.setText(str(summary["kuehllast"]["fussboden"]).replace(".", ","))
+
+
+    def personen_anzahl(self):
+        pass
+
+    def arbeitsplaetze(self, s):
+        input_string = ""
+        val = 0
+        if "," in s:
+            input_string = s.replace(",", ".")
+            val = float(input_string)
+        elif s == "":
+            self.label_arbeitsplaetze.setText("0")
+            self.result_arbeitsplaetze.setText("0")
+        else:
+            val = float(s)
+        val *= 150
+        summary["kuehllast"]["arbeitsplaetze"] = round(val, 2)
+        self.label_arbeitsplaetze.setText(str(summary["kuehllast"]["arbeitsplaetze"]).replace(".", ","))
+        self.result_arbeitsplaetze.setText(str(summary["kuehllast"]["arbeitsplaetze"]).replace(".", ","))
+
+    def drucker(self, s):
+        input_string = ""
+        val = 0
+        if "," in s:
+            input_string = s.replace(",", ".")
+            val = float(input_string)
+        elif s == "":
+            self.label_drucker.setText("0")
+            self.result_drucker.setText("0")
+        else:
+            val = float(s)
+        val *= 50
+        summary["kuehllast"]["drucker"] = round(val, 2)
+        self.label_drucker.setText(str(summary["kuehllast"]["drucker"]).replace(".", ","))
+        self.result_drucker.setText(str(summary["kuehllast"]["drucker"]).replace(".", ","))
 
     def sued_changed(self, s):
         if s == SONNENSCHUTZ_LIST[0]:
@@ -261,7 +373,6 @@ class Configuration(QMainWindow):
         res = sum(summary["sum_kuehllast"])
         self.result_label.setText(str(res).replace(".", ","))
         print(summary)
-
 
     def save_sonstiges(self):
         self.label_sonstiges.setText(self.lineEdit_sonstiges.text())
