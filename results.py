@@ -21,5 +21,6 @@ summary = {
     },
     "sonstigekuehllast": {
         "sonstkuehllast": 0
-    }
+    },
+    "sum_kuehllast": []
 }

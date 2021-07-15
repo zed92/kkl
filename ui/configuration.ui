@@ -183,6 +183,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -220,6 +222,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -257,6 +261,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -294,6 +300,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -793,6 +801,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -857,6 +867,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -928,6 +940,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -992,6 +1006,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -1056,6 +1072,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -1120,6 +1138,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -1184,6 +1204,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -1248,6 +1270,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -1312,6 +1336,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -1376,6 +1402,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -1440,6 +1468,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -1511,6 +1541,8 @@ background-color: #8CC8F4
           <property name="font">
            <font>
             <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -1776,7 +1808,7 @@ color: red
          <enum>QTabWidget::Rounded</enum>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <property name="usesScrollButtons">
          <bool>false</bool>

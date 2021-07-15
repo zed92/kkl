@@ -66,13 +66,8 @@ class Configuration(QMainWindow):
 
         self.save_raum_btn.clicked.connect(self.save_raum)
         self.save_sonstiges_btn.clicked.connect(self.save_sonstiges)
-        #self.save_as_pdf_btn.clicked.connect(self.print_to_pdf)
+        self.confirm_btn.clicked.connect(self.confirm_kuehllast)
 
-    #def print_to_pdf(self):
-    #    with open("data.json", "w") as file:
-    #        json.dump(summary, file)
-    #    time.sleep(2)
-    #    pdfkit.from_file("data.json", "data.pdf")
 
     def sued_changed(self, s):
         if s == SONNENSCHUTZ_LIST[0]:
@@ -87,6 +82,10 @@ class Configuration(QMainWindow):
                 input = self.flaeche_sued_input.text()
             waermeeinfall["süd"]["flaeche"] = float(input)
             waermeeinfall["süd"]["kuehllast"] = round(waermeeinfall["süd"][s] * waermeeinfall["süd"]["flaeche"], 2)
+
+            summary["waermeeinfall"]["sued"] = waermeeinfall["süd"]["kuehllast"]
+            self.result_sued.setText(str(summary["waermeeinfall"]["sued"]).replace(".", ","))
+
             if isinstance(waermeeinfall["süd"]["kuehllast"], float):
                 export = str(waermeeinfall["süd"]["kuehllast"]).replace(".", ",")
             else:
@@ -106,6 +105,10 @@ class Configuration(QMainWindow):
                 input = self.flaeche_suedost_input.text()
             waermeeinfall["süd-ost"]["flaeche"] = float(input)
             waermeeinfall["süd-ost"]["kuehllast"] = round(waermeeinfall["süd-ost"][s] * waermeeinfall["süd-ost"]["flaeche"], 2)
+
+            summary["waermeeinfall"]["sued-ost"] = waermeeinfall["süd-ost"]["kuehllast"]
+            self.result_sued_ost.setText(str(summary["waermeeinfall"]["sued-ost"]).replace(".", ","))
+
             if isinstance(waermeeinfall["süd-ost"]["kuehllast"], float):
                 export = str(waermeeinfall["süd-ost"]["kuehllast"]).replace(".", ",")
             else:
@@ -125,6 +128,10 @@ class Configuration(QMainWindow):
                 input = self.flaeche_suedwest_input.text()
             waermeeinfall["süd-west"]["flaeche"] = float(input)
             waermeeinfall["süd-west"]["kuehllast"] = round(waermeeinfall["süd-west"][s] * waermeeinfall["süd-west"]["flaeche"], 2)
+
+            summary["waermeeinfall"]["sued-west"] = waermeeinfall["süd-west"]["kuehllast"]
+            self.result_sued_west.setText(str(summary["waermeeinfall"]["sued-west"]).replace(".", ","))
+
             if isinstance(waermeeinfall["süd-west"]["kuehllast"], float):
                 export = str(waermeeinfall["süd-west"]["kuehllast"]).replace(".", ",")
             else:
@@ -144,6 +151,10 @@ class Configuration(QMainWindow):
                 input = self.flaeche_ost_input.text()
             waermeeinfall["ost"]["flaeche"] = float(input)
             waermeeinfall["ost"]["kuehllast"] = round(waermeeinfall["ost"][s] * waermeeinfall["ost"]["flaeche"], 2)
+
+            summary["waermeeinfall"]["ost"] = waermeeinfall["ost"]["kuehllast"]
+            self.result_ost.setText(str(summary["waermeeinfall"]["ost"]).replace(".", ","))
+
             if isinstance(waermeeinfall["ost"]["kuehllast"], float):
                 export = str(waermeeinfall["ost"]["kuehllast"]).replace(".", ",")
             else:
@@ -163,6 +174,10 @@ class Configuration(QMainWindow):
                 input = self.flaeche_nordost_input.text()
             waermeeinfall["nord-ost"]["flaeche"] = float(input)
             waermeeinfall["nord-ost"]["kuehllast"] = round(waermeeinfall["nord-ost"][s] * waermeeinfall["nord-ost"]["flaeche"], 2)
+
+            summary["waermeeinfall"]["nord-ost"] = waermeeinfall["nord-ost"]["kuehllast"]
+            self.result_nord_ost.setText(str(summary["waermeeinfall"]["nord-ost"]).replace(".", ","))
+
             if isinstance(waermeeinfall["nord-ost"]["kuehllast"], float):
                 export = str(waermeeinfall["nord-ost"]["kuehllast"]).replace(".", ",")
             else:
@@ -182,6 +197,10 @@ class Configuration(QMainWindow):
                 input = self.flaeche_nordwest_input.text()
             waermeeinfall["nord-west"]["flaeche"] = float(input)
             waermeeinfall["nord-west"]["kuehllast"] = round(waermeeinfall["nord-west"][s] * waermeeinfall["nord-west"]["flaeche"], 2)
+
+            summary["waermeeinfall"]["nord-west"] = waermeeinfall["nord-west"]["kuehllast"]
+            self.result_nord_west.setText(str(summary["waermeeinfall"]["nord-west"]).replace(".", ","))
+
             if isinstance(waermeeinfall["nord-west"]["kuehllast"], float):
                 export = str(waermeeinfall["nord-west"]["kuehllast"]).replace(".", ",")
             else:
@@ -201,6 +220,11 @@ class Configuration(QMainWindow):
                 input = self.flaeche_west_input.text()
             waermeeinfall["west"]["flaeche"] = float(input)
             waermeeinfall["west"]["kuehllast"] = round(waermeeinfall["west"][s] * waermeeinfall["west"]["flaeche"], 2)
+
+            summary["waermeeinfall"]["west"] = waermeeinfall["west"]["kuehllast"]
+            self.result_west.setText(str(summary["waermeeinfall"]["west"]).replace(".", ","))
+
+
             if isinstance(waermeeinfall["west"]["kuehllast"], float):
                 export = str(waermeeinfall["west"]["kuehllast"]).replace(".", ",")
             else:
@@ -208,20 +232,61 @@ class Configuration(QMainWindow):
             self.kuehllast_west.setText(export)
 
     def confirm_kuehllast(self):
-        pass
+        max_list = []
+        print(waermeeinfall)
+        for value in waermeeinfall:
+            max_list.append(waermeeinfall[value]["kuehllast"])
+
+        summary["waermeeinfall"]["max_einstrahlung"] = max(max_list)
+        max_val = str(max(max_list)).replace(".", ",")
+        self.max_direkt_einstrahlung.setText(max_val)
+        self.result_max_einstrahlung.setText(max_val)
+        summary["sum_kuehllast"].append(float(max(max_list)))
+
+        print(max_list)
+        max_list.remove(max(max_list))
+        print(max_list)
+
+        summary["waermeeinfall"]["dif_einstrahlung"] = sum(max_list)*25
+        dif_val = str(sum(max_list)).replace(".", ",")
+        summary["sum_kuehllast"].append(float(sum(max_list)*25))
+        self.dif_sonneneinstrahlung.setText(str(summary["waermeeinfall"]["dif_einstrahlung"]).replace(".", ","))
+        self.result_dif_sonneneinstrahlung.setText(str(summary["waermeeinfall"]["dif_einstrahlung"]).replace(".", ","))
+
+
+
+        self.calc_max_kuehllast()
+
+    def calc_max_kuehllast(self):
+        res = sum(summary["sum_kuehllast"])
+        self.result_label.setText(str(res).replace(".", ","))
+        print(summary)
+
 
     def save_sonstiges(self):
         self.label_sonstiges.setText(self.lineEdit_sonstiges.text())
         save_string = self.lineEdit_sonstiges.text().replace(",", ".")
         summary["sonstigekuehllast"]["sonstkuehllast"] = float(save_string)
+        summary["sum_kuehllast"].append(float(save_string))
         self.lineEdit_sonstiges.setText("")
         print(summary)
+        self.calc_max_kuehllast()
 
     def save_raum(self):
         self.label_kommision.setText(self.lineEdit_kommision.text())
+        summary["raeumlichkeiten"]["kommision"] = str(self.lineEdit_kommision.text())
+
         self.label_ort.setText(self.lineEdit_ort.text())
+        summary["raeumlichkeiten"]["ort"] = str(self.lineEdit_ort.text())
+
         self.label_objekt.setText(self.lineEdit_objekt.text())
+        summary["raeumlichkeiten"]["objekt"] = str(self.lineEdit_objekt.text())
+
         self.label_raumbezeichnung.setText(self.lineEdit_raumbezeichnung.text())
+        summary["raeumlichkeiten"]["raumbezeichnung"] = str(self.lineEdit_raumbezeichnung.text())
+
+        print(summary)
+
         self.lineEdit_kommision.setText("")
         self.lineEdit_ort.setText("")
         self.lineEdit_objekt.setText("")
