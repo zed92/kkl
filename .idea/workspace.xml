@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d91b9e3-e2f7-4ef4-a5eb-1cc1521c738b" name="Default Changelist" comment="first part of &quot;kühllast&quot;">
+    <list default="true" id="4d91b9e3-e2f7-4ef4-a5eb-1cc1521c738b" name="Default Changelist" comment="finish &quot;kühllast&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template.py" beforeDir="false" afterPath="$PROJECT_DIR$/template.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/configuration.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui/configuration.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626375954374</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="finish &quot;kühllast&quot;">
+      <created>1626382699503</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1626382699504</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,6 +176,7 @@
     <MESSAGE value="new test commit" />
     <MESSAGE value="finished waermeeinfall tab" />
     <MESSAGE value="first part of &quot;kühllast&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="first part of &quot;kühllast&quot;" />
+    <MESSAGE value="finish &quot;kühllast&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish &quot;kühllast&quot;" />
   </component>
 </project>

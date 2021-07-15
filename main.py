@@ -74,6 +74,8 @@ class Configuration(QMainWindow):
         self.save_raum_btn.clicked.connect(self.save_raum)
         self.save_sonstiges_btn.clicked.connect(self.save_sonstiges)
         self.confirm_btn.clicked.connect(self.confirm_kuehllast)
+        self.save_kuehllasten.clicked.connect(self.add_kuehllast)
+        self.reset_btn.clicked.connect(self.reset_all)
 
         self.flaeche_ausenwand_nord.textChanged.connect(self.tran_wand_nord)
         self.flaeche_ausenwand_rest.textChanged.connect(self.tran_wand_rest)
@@ -81,6 +83,19 @@ class Configuration(QMainWindow):
         self.flaechen_fusboden.textChanged.connect(self.fussboden)
         self.pc_stueck.textChanged.connect(self.arbeitsplaetze)
         self.drucker_stueck.textChanged.connect(self.drucker)
+
+    def reset_all(self):
+        pass
+
+
+    def add_kuehllast(self):
+        #print(summary["kuehllast"])
+        new_dict = summary["kuehllast"]
+        for i in new_dict:
+            #print(new_dict[i])
+            summary["sum_kuehllast"].append(new_dict[i])
+
+        self.calc_max_kuehllast()
 
     def dachflaechen(self, s):
         if s == DACHFLAECHEN[0]:
