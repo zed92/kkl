@@ -469,6 +469,8 @@ class Configuration(QMainWindow):
         max_list.remove(max(max_list))
         print(max_list)
 
+        #ToDo -bugfix for 'dif_einstrahlung', just use the quadrat meter not the W
+
         summary["waermeeinfall"]["dif_einstrahlung"] = sum(max_list)*25
         dif_val = str(sum(max_list)).replace(".", ",")
         summary["sum_kuehllast"].append(float(sum(max_list)*25))
